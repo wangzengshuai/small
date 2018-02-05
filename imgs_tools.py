@@ -250,12 +250,12 @@ def read_img(img_path):
 if __name__ == '__main__':
 
     dowload()
-    listdir = os.listdir('E:\code\persion\python\small_identity_code\small\data\imgs')
+    listdir = os.listdir(base_path + 'imgs')
     start_time = time.time()
     print '程序开始'
     for last_dir in listdir:
 
-        im = Image.open('E:\code\persion\python\small_identity_code\small\data\imgs' + '/' + last_dir)
+        im = Image.open(base_path+'imgs' + '/' + last_dir)
 
         im = to_bin(im)
         im = remove_noise(im, 3)
@@ -267,7 +267,7 @@ if __name__ == '__main__':
         except Exception as e:
             traceback.format_exc()
         for index in range(len(imgs)):
-            imgs[index].save('%s/%s_%s' % ('E:\code\persion\python\small_identity_code\small\data\cut_test', index, last_dir))
+            imgs[index].save('%s/%s_%s' % (base_path + 'cut_test', index, last_dir))
 
     # raise TypeError('over')
     # listdir = os.listdir(origin_pic_folder)

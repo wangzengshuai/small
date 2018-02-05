@@ -7,6 +7,7 @@ svm 特征提取
 import os
 import sys
 from os.path import join
+
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
@@ -60,7 +61,7 @@ def convert_values_to_str(dig, dif_list):
     """
     line = '%s' % dig
     for index, value in enumerate(dif_list):
-        line += ' %s:%s' % (index+1, value)
+        line += ' %s:%s' % (index + 1, value)
     print line
     return line
 
@@ -106,8 +107,8 @@ def get_svm_test_txt():
     :return:
     """
 
-    img_folder = r'E:\code\persion\python\small_identity_code\small\data\cut_test\a'
-    test_file = open(r'E:\code\persion\python\small_identity_code\small\data\cut_test\a\aa.txt', 'w')
+    img_folder = base_path + r'cut_test\a'
+    test_file = open(base_path + r'cut_test\a\aa.txt', 'w')
     convert_imgs_to_feature_file(ord('a'), test_file, img_folder)  # todo 先用0代替
     test_file.close()
 
@@ -135,5 +136,6 @@ def convert_feature_to_vector(feature_list):
     return xt_vector
 
 
-# get_svm_test_txt()
-# get_one_test_txt()
+if __name__ == '__main__':
+    get_svm_test_txt()
+    get_one_test_txt()
